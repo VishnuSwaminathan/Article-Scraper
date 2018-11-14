@@ -9,3 +9,7 @@ For demonstration purposes, this scraper will be going through CTV News.
 - Express.js
 - Cheerio.js
 - Axios.js
+
+### Note:
+
+Was not able to host the db to heroku, but it works locally!
