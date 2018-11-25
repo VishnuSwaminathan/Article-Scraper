@@ -1,20 +1,24 @@
-var express = require('express');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var axios = require('axios');
-var cheerio = require('cheerio');
-var db = require('./models');
-var PORT = process.env.PORT || 3000;
-var app = express();
+const express = require('express');
+const logger = require('morgan');
+const mongoose = require('mongoose');
+const axios = require('axios');
+const cheerio = require('cheerio');
+const db = require('./models');
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
+const app = express();
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
-const CONNECTION_URI =
-  process.env.MONGODB_URI || 'mongodb://localhost/unit18Populater';
+
 mongoose.connect(
-  CONNECTION_URI,
-  { useNewUrlParser: true }
+  'mongodb://@ds115244.mlab.com:15244/unit18populater' ||
+    'mongodb://localhost/unit18Populater',
+  {
+    useNewUrlParser: true,
+    auth: { user: process.env.DBUSER, password: process.env.DBPASSWORD }
+  }
 );
 //test
 
