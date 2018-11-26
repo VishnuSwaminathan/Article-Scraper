@@ -5,7 +5,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const db = require('./models');
 require('dotenv').config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 7000;
 const app = express();
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));

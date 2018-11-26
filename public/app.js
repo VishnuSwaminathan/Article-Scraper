@@ -30,7 +30,7 @@ $.getJSON('/scrape', function(data) {
         newLink +
         "'>LINK</a>" +
         //
-        "<a class='btn btn-primary' id='saveBtn' href='/saveArticles/" +
+        "<a class='btn btn-primary' id='saveBtn' href='/saveArticle/" +
         data[i]._id +
         "' data-id='" +
         data[i]._id +
@@ -59,7 +59,7 @@ $(document).on('click', '#saveBtn', function(e) {
     data: $(this).attr('data-id'),
     success: function(data) {
       $(this)
-        .closest('.card')
+        .closest('#scrapedCards')
         .empty();
     }
   });
